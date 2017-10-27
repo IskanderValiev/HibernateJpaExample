@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory name="java:hibernate/SessionFactory">
+        <property name="connection.driver_classs">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/javahebirnatedatabase</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">BVB09</property>
+
+        <!-- SQL dialect -->
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL94Dialect</property>
+
+        <!-- Print executed SQL to stdout -->
+        <property name="show_sql">true</property>
+
+        <!-- Drop and re-create all database on startup -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- Annotated entity classes -->
+        <mapping class="models.Player"/>
+
+        !-- mapping files -->
+        <mapping resource="NationalTeam.hbm.xml"/>
+        <mapping resource="Club.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>
+
+
+<!--<?xml version='1.0' encoding='utf-8'?>-->
+<!--<!DOCTYPE hibernate-configuration PUBLIC-->
+        <!--"-//Hibernate/Hibernate Configuration DTD//EN"-->
+        <!--"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">-->
+
+<!--<hibernate-configuration>-->
+
+    <!--&lt;!&ndash; a SessionFactory instance listed as /jndi/name &ndash;&gt;-->
+    <!--<session-factory-->
+            <!--name="java:hibernate/SessionFactory">-->
+
+        <!--&lt;!&ndash; properties &ndash;&gt;-->
+        <!--<property name="connection.datasource">java:/comp/env/jdbc/MyDB</property>-->
+        <!--<property name="dialect">org.hibernate.dialect.MySQLDialect</property>-->
+        <!--<property name="show_sql">false</property>-->
+        <!--<property name="transaction.factory_class">-->
+            <!--org.hibernate.transaction.JTATransactionFactory-->
+        <!--</property>-->
+        <!--<property name="jta.UserTransaction">java:comp/UserTransaction</property>-->
+
+        <!--&lt;!&ndash; mapping files &ndash;&gt;-->
+        <!--<mapping resource="org/hibernate/auction/Item.hbm.xml"/>-->
+        <!--<mapping resource="org/hibernate/auction/Bid.hbm.xml"/>-->
+
+        <!--&lt;!&ndash; cache settings &ndash;&gt;-->
+        <!--<class-cache class="org.hibernate.auction.Item" usage="read-write"/>-->
+        <!--<class-cache class="org.hibernate.auction.Bid" usage="read-only"/>-->
+        <!--<collection-cache collection="org.hibernate.auction.Item.bids" usage="read-write"/>-->
+
+    <!--</session-factory>-->
+
+<!--</hibernate-configuration>-->
